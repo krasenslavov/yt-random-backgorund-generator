@@ -18,24 +18,24 @@
 .yt-rbg-section {
 	background: #fff;
 	border: 1px solid #ccd0d4;
-	padding: 20px;
-	margin-bottom: 20px;
 	border-radius: 4px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+	margin-bottom: 20px;
+	padding: 20px;
 }
 
 .yt-rbg-section h2 {
-	margin-top: 0;
-	font-size: 18px;
 	border-bottom: 2px solid #2271b1;
-	padding-bottom: 10px;
 	color: #1d2327;
+	font-size: 18px;
+	margin-top: 0;
+	padding-bottom: 10px;
 }
 
 .yt-rbg-section h3 {
-	margin-top: 20px;
-	font-size: 15px;
 	color: #2271b1;
+	font-size: 15px;
+	margin-top: 20px;
 }
 
 /* Form table customization */
@@ -44,9 +44,9 @@
 }
 
 .yt-rbg-section .form-table th {
-	width: 250px;
-	font-weight: 600;
 	color: #1d2327;
+	font-weight: 600;
+	width: 250px;
 }
 
 .yt-rbg-section .form-table td {
@@ -54,10 +54,10 @@
 }
 
 .yt-rbg-section .form-table label {
-	display: flex;
 	align-items: center;
-	gap: 8px;
+	display: flex;
 	font-size: 14px;
+	gap: 8px;
 }
 
 .yt-rbg-section .form-table input[type="checkbox"] {
@@ -65,31 +65,31 @@
 }
 
 .yt-rbg-section .description {
-	margin-top: 8px;
-	font-size: 13px;
 	color: #646970;
+	font-size: 13px;
 	line-height: 1.5;
+	margin-top: 8px;
 }
 
 /* Items list (colors and images) */
 .yt-rbg-items-list {
-	margin: 15px 0;
-	padding: 15px;
 	background: #f6f7f7;
 	border: 1px solid #dcdcde;
 	border-radius: 4px;
+	margin: 15px 0;
 	min-height: 100px;
+	padding: 15px;
 }
 
 .yt-rbg-item {
-	display: flex;
 	align-items: center;
-	gap: 10px;
-	margin-bottom: 10px;
-	padding: 10px;
 	background: #fff;
 	border: 1px solid #dcdcde;
 	border-radius: 4px;
+	display: flex;
+	gap: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
 }
 
 .yt-rbg-item:last-child {
@@ -111,14 +111,14 @@
 }
 
 .yt-rbg-image-preview {
-	width: 100px;
-	height: 100px;
-	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	background-size: cover;
 	border: 2px solid #dcdcde;
 	border-radius: 4px;
 	flex-shrink: 0;
+	height: 100px;
+	width: 100px;
 }
 
 .yt-rbg-image-item input[type="text"] {
@@ -154,31 +154,31 @@
 .yt-rbg-preview-box {
 	background: #fff;
 	border: 1px solid #ccd0d4;
-	padding: 20px;
-	margin-top: 20px;
 	border-radius: 4px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+	margin-top: 20px;
+	padding: 20px;
 }
 
 .yt-rbg-preview-box h3 {
-	margin-top: 0;
-	font-size: 16px;
 	color: #2271b1;
+	font-size: 16px;
+	margin-top: 0;
 }
 
 .yt-rbg-preview-area {
-	width: 100%;
-	height: 200px;
+	align-items: center;
 	border: 2px solid #dcdcde;
 	border-radius: 4px;
+	color: #646970;
 	display: flex;
-	align-items: center;
-	justify-content: center;
 	font-size: 18px;
 	font-weight: 600;
-	color: #646970;
+	height: 200px;
+	justify-content: center;
 	margin-bottom: 15px;
 	transition: all 0.5s ease;
+	width: 100%;
 }
 
 #yt-rbg-generate-preview {
@@ -210,8 +210,8 @@
 }
 
 .yt-rbg-taxonomy-list input[type="text"] {
-	width: 100%;
 	max-width: 400px;
+	width: 100%;
 }
 
 /* Color picker integration */
@@ -238,17 +238,17 @@
 }
 
 .yt-rbg-loading::after {
+	animation: yt-rbg-spin 0.8s linear infinite;
+	border: 2px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 2px solid #2271b1;
 	content: '';
+	height: 20px;
+	left: 50%;
+	margin: -10px 0 0 -10px;
 	position: absolute;
 	top: 50%;
-	left: 50%;
 	width: 20px;
-	height: 20px;
-	margin: -10px 0 0 -10px;
-	border: 2px solid #f3f3f3;
-	border-top: 2px solid #2271b1;
-	border-radius: 50%;
-	animation: yt-rbg-spin 0.8s linear infinite;
 }
 
 @keyframes yt-rbg-spin {
@@ -263,28 +263,28 @@
 
 /* Success/error messages */
 .yt-rbg-message {
-	padding: 10px 15px;
 	border-radius: 4px;
-	margin: 15px 0;
 	font-size: 14px;
+	margin: 15px 0;
+	padding: 10px 15px;
 }
 
 .yt-rbg-message.success {
 	background: #d4edda;
-	color: #155724;
 	border: 1px solid #c3e6cb;
+	color: #155724;
 }
 
 .yt-rbg-message.error {
 	background: #f8d7da;
-	color: #721c24;
 	border: 1px solid #f5c6cb;
+	color: #721c24;
 }
 
 .yt-rbg-message.info {
 	background: #d1ecf1;
-	color: #0c5460;
 	border: 1px solid #bee5eb;
+	color: #0c5460;
 }
 
 /* Responsive design */
@@ -293,8 +293,8 @@
 	.yt-rbg-section .form-table th,
 	.yt-rbg-section .form-table td {
 		display: block;
-		width: 100%;
 		padding: 10px;
+		width: 100%;
 	}
 
 	.yt-rbg-section .form-table th {
@@ -303,23 +303,23 @@
 	}
 
 	.yt-rbg-item {
-		flex-direction: column;
 		align-items: stretch;
+		flex-direction: column;
 	}
 
 	.yt-rbg-image-preview {
-		width: 100%;
 		height: 150px;
+		width: 100%;
 	}
 
 	.yt-rbg-image-item input[type="text"] {
-		width: 100%;
 		min-width: 0;
+		width: 100%;
 	}
 
 	.yt-rbg-remove-item {
-		width: 100%;
 		margin-left: 0;
+		width: 100%;
 	}
 
 	.yt-rbg-taxonomy-list table,
@@ -332,30 +332,30 @@
 	}
 
 	.yt-rbg-taxonomy-list thead tr {
+		left: -9999px;
 		position: absolute;
 		top: -9999px;
-		left: -9999px;
 	}
 
 	.yt-rbg-taxonomy-list td {
 		border: none;
-		position: relative;
 		padding-left: 40%;
+		position: relative;
 	}
 
 	.yt-rbg-taxonomy-list td:before {
-		position: absolute;
-		left: 10px;
-		width: 35%;
-		padding-right: 10px;
-		white-space: nowrap;
 		font-weight: 600;
+		left: 10px;
+		padding-right: 10px;
+		position: absolute;
+		white-space: nowrap;
+		width: 35%;
 	}
 
 	.yt-rbg-taxonomy-list select,
 	.yt-rbg-taxonomy-list input[type="text"] {
-		width: 100%;
 		max-width: 100%;
+		width: 100%;
 	}
 }
 
@@ -402,18 +402,18 @@ select:focus {
 }
 
 .yt-rbg-item.yt-rbg-dragging {
-	opacity: 0.5;
 	cursor: move;
+	opacity: 0.5;
 }
 
 /* Empty state */
 .yt-rbg-items-list:empty::after {
+	color: #646970;
 	content: attr(data-empty-text);
 	display: block;
-	text-align: center;
-	color: #646970;
 	font-style: italic;
 	padding: 30px;
+	text-align: center;
 }
 
 .yt-rbg-items-list[data-empty-text]:empty::after {
@@ -422,18 +422,18 @@ select:focus {
 
 /* Help text */
 .yt-rbg-help-text {
-	display: inline-block;
-	width: 16px;
-	height: 16px;
 	background: #2271b1;
-	color: #fff;
 	border-radius: 50%;
-	text-align: center;
-	line-height: 16px;
+	color: #fff;
+	cursor: help;
+	display: inline-block;
 	font-size: 12px;
 	font-weight: 600;
-	cursor: help;
+	height: 16px;
+	line-height: 16px;
 	margin-left: 4px;
+	text-align: center;
+	width: 16px;
 }
 
 .yt-rbg-help-text:hover {
@@ -442,40 +442,40 @@ select:focus {
 
 /* Toggle switch */
 .yt-rbg-toggle-switch {
-	position: relative;
 	display: inline-block;
-	width: 50px;
 	height: 24px;
+	position: relative;
+	width: 50px;
 }
 
 .yt-rbg-toggle-switch input {
+	height: 0;
 	opacity: 0;
 	width: 0;
-	height: 0;
 }
 
 .yt-rbg-toggle-slider {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
 	background-color: #ccc;
-	transition: 0.4s;
 	border-radius: 24px;
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: 0.4s;
 }
 
 .yt-rbg-toggle-slider:before {
-	position: absolute;
+	background-color: white;
+	border-radius: 50%;
+	bottom: 3px;
 	content: "";
 	height: 18px;
-	width: 18px;
 	left: 3px;
-	bottom: 3px;
-	background-color: white;
+	position: absolute;
 	transition: 0.4s;
-	border-radius: 50%;
+	width: 18px;
 }
 
 input:checked+.yt-rbg-toggle-slider {
@@ -488,119 +488,119 @@ input:checked+.yt-rbg-toggle-slider:before {
 
 /* Status badges */
 .yt-rbg-status-badge {
-	display: inline-block;
-	padding: 2px 8px;
 	border-radius: 3px;
+	display: inline-block;
 	font-size: 11px;
 	font-weight: 600;
+	padding: 2px 8px;
 	text-transform: uppercase;
 }
 
 .yt-rbg-status-badge.enabled {
 	background: #d4edda;
-	color: #155724;
 	border: 1px solid #c3e6cb;
+	color: #155724;
 }
 
 .yt-rbg-status-badge.disabled {
 	background: #f8d7da;
-	color: #721c24;
 	border: 1px solid #f5c6cb;
+	color: #721c24;
 }
 
 /* Image upload button */
 .yt-rbg-upload-button {
-	display: inline-flex;
 	align-items: center;
+	display: inline-flex;
 	gap: 6px;
 }
 
 .yt-rbg-upload-button .dashicons {
-	width: 16px;
-	height: 16px;
 	font-size: 16px;
+	height: 16px;
+	width: 16px;
 }
 
 /* Color swatches grid */
 .yt-rbg-color-swatches {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
 	gap: 10px;
+	grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
 	margin: 15px 0;
 }
 
 .yt-rbg-color-swatch {
-	width: 80px;
-	height: 80px;
 	border: 2px solid #dcdcde;
 	border-radius: 4px;
 	cursor: pointer;
-	transition: all 0.2s ease;
+	height: 80px;
 	position: relative;
+	transition: all 0.2s ease;
+	width: 80px;
 }
 
 .yt-rbg-color-swatch:hover {
 	border-color: #2271b1;
-	transform: scale(1.05);
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	transform: scale(1.05);
 }
 
 .yt-rbg-color-swatch::after {
-	content: attr(data-color);
-	position: absolute;
 	bottom: -20px;
-	left: 50%;
-	transform: translateX(-50%);
-	font-size: 11px;
 	color: #646970;
+	content: attr(data-color);
+	font-size: 11px;
+	left: 50%;
+	position: absolute;
+	transform: translateX(-50%);
 	white-space: nowrap;
 }
 
 /* Image gallery grid */
 .yt-rbg-image-gallery {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 	gap: 15px;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 	margin: 15px 0;
 }
 
 .yt-rbg-gallery-item {
-	position: relative;
 	aspect-ratio: 4 / 3;
 	border: 2px solid #dcdcde;
 	border-radius: 4px;
-	overflow: hidden;
 	cursor: pointer;
+	overflow: hidden;
+	position: relative;
 	transition: all 0.2s ease;
 }
 
 .yt-rbg-gallery-item:hover {
 	border-color: #2271b1;
-	transform: scale(1.02);
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	transform: scale(1.02);
 }
 
 .yt-rbg-gallery-item img {
-	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	width: 100%;
 }
 
 .yt-rbg-gallery-item .yt-rbg-remove {
-	position: absolute;
-	top: 5px;
-	right: 5px;
+	align-items: center;
 	background: rgba(255, 255, 255, 0.9);
 	border: none;
 	border-radius: 50%;
-	width: 24px;
-	height: 24px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	cursor: pointer;
+	display: flex;
+	height: 24px;
+	justify-content: center;
 	opacity: 0;
+	position: absolute;
+	right: 5px;
+	top: 5px;
 	transition: opacity 0.2s ease;
+	width: 24px;
 }
 
 .yt-rbg-gallery-item:hover .yt-rbg-remove {
@@ -614,32 +614,32 @@ input:checked+.yt-rbg-toggle-slider:before {
 
 /* Tooltip */
 .yt-rbg-tooltip {
-	position: relative;
 	display: inline-block;
+	position: relative;
 }
 
 .yt-rbg-tooltip .yt-rbg-tooltip-text {
-	visibility: hidden;
-	width: 200px;
 	background-color: #1d2327;
-	color: #fff;
-	text-align: center;
 	border-radius: 4px;
-	padding: 8px;
-	position: absolute;
-	z-index: 1;
 	bottom: 125%;
+	color: #fff;
+	font-size: 12px;
 	left: 50%;
+	line-height: 1.4;
 	margin-left: -100px;
 	opacity: 0;
+	padding: 8px;
+	position: absolute;
+	text-align: center;
 	transition: opacity 0.3s;
-	font-size: 12px;
-	line-height: 1.4;
+	visibility: hidden;
+	width: 200px;
+	z-index: 1;
 }
 
 .yt-rbg-tooltip:hover .yt-rbg-tooltip-text {
-	visibility: visible;
 	opacity: 1;
+	visibility: visible;
 }
 
 /* Frontend transition styles */

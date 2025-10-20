@@ -3,7 +3,7 @@
  * Plugin Name: YT Random Background Generator
  * Plugin URI: https://github.com/krasenslavov/yt-random-background-generator
  * Description: Dynamically assigns random background colors or images on each page load. Configure colors/images globally or per category/tag. Perfect for creative sites, portfolios, and dynamic visual experiences.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: Krasen Slavov
