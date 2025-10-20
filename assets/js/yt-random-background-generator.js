@@ -1,18 +1,18 @@
 /**
  * YT Random Background Generator - JavaScript
  *
+ * @format
  * @package YT_Random_Background_Generator
  * @version 1.0.0
  */
 
-(function($) {
-	'use strict';
+(function ($) {
+	"use strict";
 
 	/**
 	 * Random Background Generator Handler
 	 */
 	var RandomBackgroundGenerator = {
-
 		/**
 		 * Color picker instances.
 		 */
@@ -26,7 +26,7 @@
 		/**
 		 * Initialize the plugin.
 		 */
-		init: function() {
+		init: function () {
 			this.bindEvents();
 			this.initializeColorPickers();
 			this.handleBackgroundTypeChange();
@@ -35,40 +35,40 @@
 		/**
 		 * Bind event handlers.
 		 */
-		bindEvents: function() {
+		bindEvents: function () {
 			var self = this;
 
 			// Add color button.
-			$(document).on('click', '#yt-rbg-add-color', function(e) {
+			$(document).on("click", "#yt-rbg-add-color", function (e) {
 				e.preventDefault();
 				self.addColorItem();
 			});
 
 			// Add image button.
-			$(document).on('click', '#yt-rbg-add-image', function(e) {
+			$(document).on("click", "#yt-rbg-add-image", function (e) {
 				e.preventDefault();
 				self.addImageItem();
 			});
 
 			// Remove item button.
-			$(document).on('click', '.yt-rbg-remove-item', function(e) {
+			$(document).on("click", ".yt-rbg-remove-item", function (e) {
 				e.preventDefault();
 				self.removeItem($(this));
 			});
 
 			// Background type change.
-			$(document).on('change', '#yt-rbg-background-type', function() {
+			$(document).on("change", "#yt-rbg-background-type", function () {
 				self.handleBackgroundTypeChange();
 			});
 
 			// Generate preview button.
-			$(document).on('click', '#yt-rbg-generate-preview', function(e) {
+			$(document).on("click", "#yt-rbg-generate-preview", function (e) {
 				e.preventDefault();
 				self.generatePreview();
 			});
 
 			// Form submission.
-			$('form').on('submit', function() {
+			$("form").on("submit", function () {
 				self.cleanupColorPickers();
 			});
 		},
@@ -76,10 +76,10 @@
 		/**
 		 * Initialize color pickers.
 		 */
-		initializeColorPickers: function() {
+		initializeColorPickers: function () {
 			var self = this;
 
-			$('.yt-rbg-color-picker').each(function() {
+			$(".yt-rbg-color-picker").each(function () {
 				self.initColorPicker($(this));
 			});
 		},
@@ -89,18 +89,18 @@
 		 *
 		 * @param {jQuery} $input Color input element.
 		 */
-		initColorPicker: function($input) {
-			if ($input.hasClass('wp-color-picker-initialized')) {
+		initColorPicker: function ($input) {
+			if ($input.hasClass("wp-color-picker-initialized")) {
 				return;
 			}
 
-			$input.addClass('wp-color-picker-initialized');
+			$input.addClass("wp-color-picker-initialized");
 
 			$input.wpColorPicker({
-				change: function(event, ui) {
+				change: function (event, ui) {
 					// Update preview if needed.
 				},
-				clear: function() {
+				clear: function () {
 					// Handle clear.
 				}
 			});
@@ -111,11 +111,11 @@
 		/**
 		 * Cleanup color pickers before form submit.
 		 */
-		cleanupColorPickers: function() {
+		cleanupColorPickers: function () {
 			// Remove color picker UI to avoid duplicate field submissions.
-			$('.wp-picker-container').each(function() {
+			$(".wp-picker-container").each(function () {
 				var $container = $(this);
-				var $input = $container.find('.wp-color-picker');
+				var $input = $container.find(".wp-color-picker");
 				if ($input.length) {
 					$container.after($input);
 				}
@@ -125,25 +125,25 @@
 		/**
 		 * Add color item.
 		 */
-		addColorItem: function() {
-			var $list = $('#yt-rbg-colors-list');
-			var index = $list.find('.yt-rbg-color-item').length;
+		addColorItem: function () {
+			var $list = $("#yt-rbg-colors-list");
+			var index = $list.find(".yt-rbg-color-item").length;
 
-			var $item = $('<div>', {
-				'class': 'yt-rbg-item yt-rbg-color-item'
+			var $item = $("<div>", {
+				class: "yt-rbg-item yt-rbg-color-item"
 			});
 
-			var $input = $('<input>', {
-				'type': 'text',
-				'name': 'yt_rbg_options[colors][]',
-				'value': '#3498db',
-				'class': 'yt-rbg-color-picker'
+			var $input = $("<input>", {
+				type: "text",
+				name: "yt_rbg_options[colors][]",
+				value: "#3498db",
+				class: "yt-rbg-color-picker"
 			});
 
-			var $removeBtn = $('<button>', {
-				'type': 'button',
-				'class': 'button yt-rbg-remove-item',
-				'text': ytRbgData.strings.addColor || 'Remove'
+			var $removeBtn = $("<button>", {
+				type: "button",
+				class: "button yt-rbg-remove-item",
+				text: ytRbgData.strings.addColor || "Remove"
 			});
 
 			$item.append($input, $removeBtn);
@@ -159,7 +159,7 @@
 		/**
 		 * Add image item.
 		 */
-		addImageItem: function() {
+		addImageItem: function () {
 			var self = this;
 
 			// Create media uploader if not exists.
@@ -169,15 +169,15 @@
 			}
 
 			this.mediaUploader = wp.media({
-				title: ytRbgData.strings.selectImage || 'Select Background Image',
+				title: ytRbgData.strings.selectImage || "Select Background Image",
 				button: {
-					text: ytRbgData.strings.useImage || 'Use This Image'
+					text: ytRbgData.strings.useImage || "Use This Image"
 				},
 				multiple: false
 			});
 
-			this.mediaUploader.on('select', function() {
-				var attachment = self.mediaUploader.state().get('selection').first().toJSON();
+			this.mediaUploader.on("select", function () {
+				var attachment = self.mediaUploader.state().get("selection").first().toJSON();
 				self.createImageItem(attachment.url);
 			});
 
@@ -189,37 +189,37 @@
 		 *
 		 * @param {string} imageUrl Image URL.
 		 */
-		createImageItem: function(imageUrl) {
-			var $list = $('#yt-rbg-images-list');
+		createImageItem: function (imageUrl) {
+			var $list = $("#yt-rbg-images-list");
 
-			var $item = $('<div>', {
-				'class': 'yt-rbg-item yt-rbg-image-item'
+			var $item = $("<div>", {
+				class: "yt-rbg-item yt-rbg-image-item"
 			});
 
-			var $preview = $('<div>', {
-				'class': 'yt-rbg-image-preview',
-				'css': {
-					'background-image': 'url(' + imageUrl + ')'
+			var $preview = $("<div>", {
+				class: "yt-rbg-image-preview",
+				css: {
+					"background-image": "url(" + imageUrl + ")"
 				}
 			});
 
-			var $hiddenInput = $('<input>', {
-				'type': 'hidden',
-				'name': 'yt_rbg_options[images][]',
-				'value': imageUrl
+			var $hiddenInput = $("<input>", {
+				type: "hidden",
+				name: "yt_rbg_options[images][]",
+				value: imageUrl
 			});
 
-			var $textInput = $('<input>', {
-				'type': 'text',
-				'value': imageUrl,
-				'readonly': true,
-				'class': 'regular-text'
+			var $textInput = $("<input>", {
+				type: "text",
+				value: imageUrl,
+				readonly: true,
+				class: "regular-text"
 			});
 
-			var $removeBtn = $('<button>', {
-				'type': 'button',
-				'class': 'button yt-rbg-remove-item',
-				'text': 'Remove'
+			var $removeBtn = $("<button>", {
+				type: "button",
+				class: "button yt-rbg-remove-item",
+				text: "Remove"
 			});
 
 			$item.append($preview, $hiddenInput, $textInput, $removeBtn);
@@ -234,20 +234,20 @@
 		 *
 		 * @param {jQuery} $button Remove button.
 		 */
-		removeItem: function($button) {
-			if (!confirm(ytRbgData.strings.confirmDelete || 'Are you sure?')) {
+		removeItem: function ($button) {
+			if (!confirm(ytRbgData.strings.confirmDelete || "Are you sure?")) {
 				return;
 			}
 
-			var $item = $button.closest('.yt-rbg-item');
+			var $item = $button.closest(".yt-rbg-item");
 
 			// Cleanup color picker if needed.
-			var $colorInput = $item.find('.wp-color-picker');
+			var $colorInput = $item.find(".wp-color-picker");
 			if ($colorInput.length && $colorInput.wpColorPicker) {
-				$colorInput.wpColorPicker('destroy');
+				$colorInput.wpColorPicker("destroy");
 			}
 
-			$item.fadeOut(300, function() {
+			$item.fadeOut(300, function () {
 				$(this).remove();
 			});
 		},
@@ -255,16 +255,16 @@
 		/**
 		 * Handle background type change.
 		 */
-		handleBackgroundTypeChange: function() {
-			var type = $('#yt-rbg-background-type').val();
-			var $colorsSection = $('.yt-rbg-colors-section');
-			var $imagesSection = $('.yt-rbg-images-section');
+		handleBackgroundTypeChange: function () {
+			var type = $("#yt-rbg-background-type").val();
+			var $colorsSection = $(".yt-rbg-colors-section");
+			var $imagesSection = $(".yt-rbg-images-section");
 
 			// Show/hide sections based on type.
-			if (type === 'color') {
+			if (type === "color") {
 				$colorsSection.show();
 				$imagesSection.hide();
-			} else if (type === 'image') {
+			} else if (type === "image") {
 				$colorsSection.hide();
 				$imagesSection.show();
 			} else {
@@ -277,14 +277,14 @@
 		/**
 		 * Generate preview.
 		 */
-		generatePreview: function() {
+		generatePreview: function () {
 			var self = this;
-			var $preview = $('#yt-rbg-preview');
-			var $button = $('#yt-rbg-generate-preview');
+			var $preview = $("#yt-rbg-preview");
+			var $button = $("#yt-rbg-generate-preview");
 
 			// Show loading state.
-			$button.prop('disabled', true).text('Generating...');
-			$preview.addClass('yt-rbg-loading');
+			$button.prop("disabled", true).text("Generating...");
+			$preview.addClass("yt-rbg-loading");
 
 			// Get random background.
 			var background = this.getRandomBackground();
@@ -293,9 +293,9 @@
 			this.applyBackgroundToPreview(background);
 
 			// Reset button.
-			setTimeout(function() {
-				$button.prop('disabled', false).text('Generate Random Preview');
-				$preview.removeClass('yt-rbg-loading');
+			setTimeout(function () {
+				$button.prop("disabled", false).text("Generate Random Preview");
+				$preview.removeClass("yt-rbg-loading");
 			}, 500);
 		},
 
@@ -304,11 +304,11 @@
 		 *
 		 * @return {object} Background data.
 		 */
-		getRandomBackground: function() {
-			var type = $('#yt-rbg-background-type').val();
+		getRandomBackground: function () {
+			var type = $("#yt-rbg-background-type").val();
 			var background = {};
 
-			if (type === 'color' || (type === 'mixed' && Math.random() < 0.5)) {
+			if (type === "color" || (type === "mixed" && Math.random() < 0.5)) {
 				background = this.getRandomColor();
 			} else {
 				background = this.getRandomImage();
@@ -322,10 +322,10 @@
 		 *
 		 * @return {object} Color data.
 		 */
-		getRandomColor: function() {
+		getRandomColor: function () {
 			var colors = [];
 
-			$('#yt-rbg-colors-list .yt-rbg-color-picker').each(function() {
+			$("#yt-rbg-colors-list .yt-rbg-color-picker").each(function () {
 				var color = $(this).val();
 				if (color) {
 					colors.push(color);
@@ -334,9 +334,9 @@
 
 			if (colors.length === 0) {
 				// Fallback color.
-				var fallback = $('input[name="yt_rbg_options[fallback_color]"]').val() || '#ffffff';
+				var fallback = $('input[name="yt_rbg_options[fallback_color]"]').val() || "#ffffff";
 				return {
-					type: 'color',
+					type: "color",
 					value: fallback
 				};
 			}
@@ -344,7 +344,7 @@
 			var randomIndex = Math.floor(Math.random() * colors.length);
 
 			return {
-				type: 'color',
+				type: "color",
 				value: colors[randomIndex]
 			};
 		},
@@ -354,10 +354,10 @@
 		 *
 		 * @return {object} Image data.
 		 */
-		getRandomImage: function() {
+		getRandomImage: function () {
 			var images = [];
 
-			$('#yt-rbg-images-list input[name="yt_rbg_options[images][]"]').each(function() {
+			$('#yt-rbg-images-list input[name="yt_rbg_options[images][]"]').each(function () {
 				var image = $(this).val();
 				if (image) {
 					images.push(image);
@@ -372,7 +372,7 @@
 			var randomIndex = Math.floor(Math.random() * images.length);
 
 			return {
-				type: 'image',
+				type: "image",
 				value: images[randomIndex]
 			};
 		},
@@ -382,26 +382,26 @@
 		 *
 		 * @param {object} background Background data.
 		 */
-		applyBackgroundToPreview: function(background) {
-			var $preview = $('#yt-rbg-preview');
+		applyBackgroundToPreview: function (background) {
+			var $preview = $("#yt-rbg-preview");
 			var css = {};
 
-			if (background.type === 'color') {
+			if (background.type === "color") {
 				css = {
-					'background-color': background.value,
-					'background-image': 'none'
+					"background-color": background.value,
+					"background-image": "none"
 				};
 			} else {
-				var imageSize = $('select[name="yt_rbg_options[image_size]"]').val() || 'cover';
-				var imagePosition = $('select[name="yt_rbg_options[image_position]"]').val() || 'center center';
-				var imageRepeat = $('select[name="yt_rbg_options[image_repeat]"]').val() || 'no-repeat';
+				var imageSize = $('select[name="yt_rbg_options[image_size]"]').val() || "cover";
+				var imagePosition = $('select[name="yt_rbg_options[image_position]"]').val() || "center center";
+				var imageRepeat = $('select[name="yt_rbg_options[image_repeat]"]').val() || "no-repeat";
 
 				css = {
-					'background-image': 'url(' + background.value + ')',
-					'background-size': imageSize,
-					'background-position': imagePosition,
-					'background-repeat': imageRepeat,
-					'background-color': 'transparent'
+					"background-image": "url(" + background.value + ")",
+					"background-size": imageSize,
+					"background-position": imagePosition,
+					"background-repeat": imageRepeat,
+					"background-color": "transparent"
 				};
 			}
 
@@ -417,15 +417,15 @@
 		 * @param {jQuery} $preview Preview element.
 		 * @param {object} background Background data.
 		 */
-		updatePreviewTextColor: function($preview, background) {
-			if (background.type === 'color') {
+		updatePreviewTextColor: function ($preview, background) {
+			if (background.type === "color") {
 				var brightness = this.getBrightness(background.value);
-				var textColor = brightness > 128 ? '#1d2327' : '#ffffff';
-				$preview.css('color', textColor);
+				var textColor = brightness > 128 ? "#1d2327" : "#ffffff";
+				$preview.css("color", textColor);
 			} else {
 				// For images, use a semi-transparent overlay effect.
-				$preview.css('color', '#ffffff');
-				$preview.css('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.5)');
+				$preview.css("color", "#ffffff");
+				$preview.css("text-shadow", "0 2px 4px rgba(0, 0, 0, 0.5)");
 			}
 		},
 
@@ -435,9 +435,9 @@
 		 * @param {string} hex Hex color code.
 		 * @return {number} Brightness value (0-255).
 		 */
-		getBrightness: function(hex) {
+		getBrightness: function (hex) {
 			// Remove # if present.
-			hex = hex.replace('#', '');
+			hex = hex.replace("#", "");
 
 			// Convert to RGB.
 			var r = parseInt(hex.substr(0, 2), 16);
@@ -451,25 +451,25 @@
 		/**
 		 * Handle AJAX preview request.
 		 */
-		ajaxPreview: function() {
+		ajaxPreview: function () {
 			var self = this;
 
 			$.ajax({
 				url: ytRbgData.ajaxUrl,
-				type: 'POST',
+				type: "POST",
 				data: {
-					action: 'yt_rbg_preview_background',
+					action: "yt_rbg_preview_background",
 					nonce: ytRbgData.nonce
 				},
-				success: function(response) {
+				success: function (response) {
 					if (response.success) {
 						self.applyBackgroundToPreview(response.data.background);
 					} else {
-						alert(ytRbgData.strings.previewError || 'Preview error');
+						alert(ytRbgData.strings.previewError || "Preview error");
 					}
 				},
-				error: function() {
-					alert(ytRbgData.strings.previewError || 'Preview error');
+				error: function () {
+					alert(ytRbgData.strings.previewError || "Preview error");
 				}
 			});
 		},
@@ -477,32 +477,32 @@
 		/**
 		 * Add drag and drop sorting.
 		 */
-		initSortable: function() {
-			var $colorsList = $('#yt-rbg-colors-list');
-			var $imagesList = $('#yt-rbg-images-list');
+		initSortable: function () {
+			var $colorsList = $("#yt-rbg-colors-list");
+			var $imagesList = $("#yt-rbg-images-list");
 
-			if (typeof $.fn.sortable !== 'undefined') {
+			if (typeof $.fn.sortable !== "undefined") {
 				$colorsList.sortable({
-					placeholder: 'yt-rbg-sortable-placeholder',
-					handle: '.yt-rbg-drag-handle',
+					placeholder: "yt-rbg-sortable-placeholder",
+					handle: ".yt-rbg-drag-handle",
 					opacity: 0.7,
-					start: function(e, ui) {
-						ui.item.addClass('yt-rbg-dragging');
+					start: function (e, ui) {
+						ui.item.addClass("yt-rbg-dragging");
 					},
-					stop: function(e, ui) {
-						ui.item.removeClass('yt-rbg-dragging');
+					stop: function (e, ui) {
+						ui.item.removeClass("yt-rbg-dragging");
 					}
 				});
 
 				$imagesList.sortable({
-					placeholder: 'yt-rbg-sortable-placeholder',
-					handle: '.yt-rbg-drag-handle',
+					placeholder: "yt-rbg-sortable-placeholder",
+					handle: ".yt-rbg-drag-handle",
 					opacity: 0.7,
-					start: function(e, ui) {
-						ui.item.addClass('yt-rbg-dragging');
+					start: function (e, ui) {
+						ui.item.addClass("yt-rbg-dragging");
 					},
-					stop: function(e, ui) {
-						ui.item.removeClass('yt-rbg-dragging');
+					stop: function (e, ui) {
+						ui.item.removeClass("yt-rbg-dragging");
 					}
 				});
 			}
@@ -513,23 +513,23 @@
 		 *
 		 * @return {boolean} Whether form is valid.
 		 */
-		validateForm: function() {
-			var type = $('#yt-rbg-background-type').val();
-			var hasColors = $('#yt-rbg-colors-list .yt-rbg-color-item').length > 0;
-			var hasImages = $('#yt-rbg-images-list .yt-rbg-image-item').length > 0;
+		validateForm: function () {
+			var type = $("#yt-rbg-background-type").val();
+			var hasColors = $("#yt-rbg-colors-list .yt-rbg-color-item").length > 0;
+			var hasImages = $("#yt-rbg-images-list .yt-rbg-image-item").length > 0;
 
-			if (type === 'color' && !hasColors) {
-				alert('Please add at least one color.');
+			if (type === "color" && !hasColors) {
+				alert("Please add at least one color.");
 				return false;
 			}
 
-			if (type === 'image' && !hasImages) {
-				alert('Please add at least one image.');
+			if (type === "image" && !hasImages) {
+				alert("Please add at least one image.");
 				return false;
 			}
 
-			if (type === 'mixed' && !hasColors && !hasImages) {
-				alert('Please add at least one color or image.');
+			if (type === "mixed" && !hasColors && !hasImages) {
+				alert("Please add at least one color or image.");
 				return false;
 			}
 
@@ -539,28 +539,28 @@
 		/**
 		 * Export settings as JSON.
 		 */
-		exportSettings: function() {
+		exportSettings: function () {
 			var settings = {
 				colors: [],
 				images: []
 			};
 
-			$('#yt-rbg-colors-list .yt-rbg-color-picker').each(function() {
+			$("#yt-rbg-colors-list .yt-rbg-color-picker").each(function () {
 				settings.colors.push($(this).val());
 			});
 
-			$('#yt-rbg-images-list input[name="yt_rbg_options[images][]"]').each(function() {
+			$('#yt-rbg-images-list input[name="yt_rbg_options[images][]"]').each(function () {
 				settings.images.push($(this).val());
 			});
 
 			var json = JSON.stringify(settings, null, 2);
 
 			// Create download link.
-			var blob = new Blob([json], { type: 'application/json' });
+			var blob = new Blob([json], { type: "application/json" });
 			var url = URL.createObjectURL(blob);
-			var a = document.createElement('a');
+			var a = document.createElement("a");
 			a.href = url;
-			a.download = 'random-backgrounds-settings.json';
+			a.download = "random-backgrounds-settings.json";
 			a.click();
 			URL.revokeObjectURL(url);
 		},
@@ -570,36 +570,36 @@
 		 *
 		 * @param {File} file JSON file.
 		 */
-		importSettings: function(file) {
+		importSettings: function (file) {
 			var self = this;
 			var reader = new FileReader();
 
-			reader.onload = function(e) {
+			reader.onload = function (e) {
 				try {
 					var settings = JSON.parse(e.target.result);
 
 					// Clear existing items.
-					$('#yt-rbg-colors-list').empty();
-					$('#yt-rbg-images-list').empty();
+					$("#yt-rbg-colors-list").empty();
+					$("#yt-rbg-images-list").empty();
 
 					// Import colors.
 					if (settings.colors && Array.isArray(settings.colors)) {
-						settings.colors.forEach(function(color) {
+						settings.colors.forEach(function (color) {
 							self.addColorItem();
-							$('#yt-rbg-colors-list .yt-rbg-color-picker').last().val(color).trigger('change');
+							$("#yt-rbg-colors-list .yt-rbg-color-picker").last().val(color).trigger("change");
 						});
 					}
 
 					// Import images.
 					if (settings.images && Array.isArray(settings.images)) {
-						settings.images.forEach(function(image) {
+						settings.images.forEach(function (image) {
 							self.createImageItem(image);
 						});
 					}
 
-					alert('Settings imported successfully!');
+					alert("Settings imported successfully!");
 				} catch (error) {
-					alert('Invalid JSON file.');
+					alert("Invalid JSON file.");
 				}
 			};
 
@@ -609,12 +609,12 @@
 		/**
 		 * Show keyboard shortcuts help.
 		 */
-		showKeyboardHelp: function() {
-			var helpText = 'Keyboard Shortcuts:\n\n';
-			helpText += 'Ctrl/Cmd + S: Save settings\n';
-			helpText += 'Ctrl/Cmd + P: Generate preview\n';
-			helpText += 'Ctrl/Cmd + N: Add new color\n';
-			helpText += 'Ctrl/Cmd + M: Add new image\n';
+		showKeyboardHelp: function () {
+			var helpText = "Keyboard Shortcuts:\n\n";
+			helpText += "Ctrl/Cmd + S: Save settings\n";
+			helpText += "Ctrl/Cmd + P: Generate preview\n";
+			helpText += "Ctrl/Cmd + N: Add new color\n";
+			helpText += "Ctrl/Cmd + M: Add new image\n";
 
 			alert(helpText);
 		},
@@ -622,35 +622,35 @@
 		/**
 		 * Add keyboard shortcuts.
 		 */
-		addKeyboardShortcuts: function() {
+		addKeyboardShortcuts: function () {
 			var self = this;
 
-			$(document).on('keydown', function(e) {
+			$(document).on("keydown", function (e) {
 				// Only on settings page.
-				if (!$('.yt-rbg-settings-page').length) {
+				if (!$(".yt-rbg-settings-page").length) {
 					return;
 				}
 
 				// Ctrl/Cmd + P: Generate preview.
-				if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+				if ((e.ctrlKey || e.metaKey) && e.key === "p") {
 					e.preventDefault();
-					$('#yt-rbg-generate-preview').click();
+					$("#yt-rbg-generate-preview").click();
 				}
 
 				// Ctrl/Cmd + N: Add color.
-				if ((e.ctrlKey || e.metaKey) && e.key === 'n') {
+				if ((e.ctrlKey || e.metaKey) && e.key === "n") {
 					e.preventDefault();
-					$('#yt-rbg-add-color').click();
+					$("#yt-rbg-add-color").click();
 				}
 
 				// Ctrl/Cmd + M: Add image.
-				if ((e.ctrlKey || e.metaKey) && e.key === 'm') {
+				if ((e.ctrlKey || e.metaKey) && e.key === "m") {
 					e.preventDefault();
-					$('#yt-rbg-add-image').click();
+					$("#yt-rbg-add-image").click();
 				}
 
 				// Ctrl/Cmd + /: Show help.
-				if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+				if ((e.ctrlKey || e.metaKey) && e.key === "/") {
 					e.preventDefault();
 					self.showKeyboardHelp();
 				}
@@ -661,9 +661,9 @@
 	/**
 	 * Initialize when DOM is ready.
 	 */
-	$(document).ready(function() {
+	$(document).ready(function () {
 		// Check if we're on the settings page.
-		if ($('.yt-rbg-settings-page').length > 0) {
+		if ($(".yt-rbg-settings-page").length > 0) {
 			RandomBackgroundGenerator.init();
 			RandomBackgroundGenerator.addKeyboardShortcuts();
 		}
@@ -671,5 +671,4 @@
 
 	// Expose to global scope for external use.
 	window.RandomBackgroundGenerator = RandomBackgroundGenerator;
-
 })(jQuery);
